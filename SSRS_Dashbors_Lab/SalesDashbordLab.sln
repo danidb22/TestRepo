@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "AdventureWorkProject", "SalesByYear\AdventureWorkProject.rptproj", "{ADC3191D-A69F-471A-88AF-998CB7EA0DD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADC3191D-A69F-471A-88AF-998CB7EA0DD1}.Debug|Default.ActiveCfg = Debug
+		{ADC3191D-A69F-471A-88AF-998CB7EA0DD1}.Debug|Default.Build.0 = Debug
+		{ADC3191D-A69F-471A-88AF-998CB7EA0DD1}.Debug|Default.Deploy.0 = Debug
+		{ADC3191D-A69F-471A-88AF-998CB7EA0DD1}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{ADC3191D-A69F-471A-88AF-998CB7EA0DD1}.DebugLocal|Default.Build.0 = DebugLocal
+		{ADC3191D-A69F-471A-88AF-998CB7EA0DD1}.Release|Default.ActiveCfg = Release
+		{ADC3191D-A69F-471A-88AF-998CB7EA0DD1}.Release|Default.Build.0 = Release
+		{ADC3191D-A69F-471A-88AF-998CB7EA0DD1}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25D18522-EE69-4E37-93F0-8300BDA30DE7}
+	EndGlobalSection
+EndGlobal

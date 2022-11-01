@@ -1,0 +1,507 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/3/2022 11:18:03 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-TVD54GD"
+  DTS:CreatorName="DESKTOP-TVD54GD\12406"
+  DTS:DTSID="{2E1ADEBD-AE05-4E7C-87DB-28E480D85041}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LoadSQLToSQLTable"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{202B709C-1275-4DC0-92C5-E981D25FD508}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Destination.LearningSSIS2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{50F09EDA-2D9B-4A88-A77C-3392C9BA27CF}"
+      DTS:ObjectName="Destination.LearningSSIS2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-TVD54GD;Initial Catalog=LearningSSIS2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Source.Learning SSIS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8DEA5FD9-D355-4CF1-9C57-70A613802673}"
+      DTS:ObjectName="Source.Learning SSIS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-TVD54GD;Initial Catalog=Learning SSIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\load data from sql table to sql table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{551F23FE-9A6C-4784-BA09-2CA3FFD76618}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="load data from sql table to sql table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Learning SSIS2_SQLTable"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tblEmp]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destination.LearningSSIS2]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destination.LearningSSIS2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].Columns[EmpID]"
+                      cachedDataType="i4"
+                      cachedName="EmpID"
+                      externalMetadataColumnId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].ExternalColumns[EmpID]"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[EmpID]" />
+                    <inputColumn
+                      refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].Columns[EmpFirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmpFirstName"
+                      externalMetadataColumnId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].ExternalColumns[EmpFirstName]"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[EmpFirstName]" />
+                    <inputColumn
+                      refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].Columns[EmpLastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmpLastName"
+                      externalMetadataColumnId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].ExternalColumns[EmpLastName]"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[EmpLastName]" />
+                    <inputColumn
+                      refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].Columns[DeptID]"
+                      cachedDataType="i4"
+                      cachedName="DeptID"
+                      externalMetadataColumnId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].ExternalColumns[DeptID]"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[DeptID]" />
+                    <inputColumn
+                      refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].Columns[MgrID]"
+                      cachedDataType="i4"
+                      cachedName="MgrID"
+                      externalMetadataColumnId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].ExternalColumns[MgrID]"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[MgrID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].ExternalColumns[EmpID]"
+                      dataType="i4"
+                      name="EmpID" />
+                    <externalMetadataColumn
+                      refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].ExternalColumns[EmpFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmpFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].ExternalColumns[EmpLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmpLastName" />
+                    <externalMetadataColumn
+                      refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].ExternalColumns[DeptID]"
+                      dataType="i4"
+                      name="DeptID" />
+                    <externalMetadataColumn
+                      refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input].ExternalColumns[MgrID]"
+                      dataType="i4"
+                      name="MgrID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SourceLearningSSIS_SQLTable"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Employee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Source.Learning SSIS]"
+                  connectionManagerRefId="Package.ConnectionManagers[Source.Learning SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[EmpID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].ExternalColumns[EmpID]"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[EmpID]"
+                      name="EmpID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[EmpFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].ExternalColumns[EmpFirstName]"
+                      length="50"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[EmpFirstName]"
+                      name="EmpFirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[EmpLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].ExternalColumns[EmpLastName]"
+                      length="50"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[EmpLastName]"
+                      name="EmpLastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[DeptID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].ExternalColumns[DeptID]"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[DeptID]"
+                      name="DeptID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[MgrID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].ExternalColumns[MgrID]"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].Columns[MgrID]"
+                      name="MgrID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].ExternalColumns[EmpID]"
+                      dataType="i4"
+                      name="EmpID" />
+                    <externalMetadataColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].ExternalColumns[EmpFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmpFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].ExternalColumns[EmpLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmpLastName" />
+                    <externalMetadataColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].ExternalColumns[DeptID]"
+                      dataType="i4"
+                      name="DeptID" />
+                    <externalMetadataColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output].ExternalColumns[MgrID]"
+                      dataType="i4"
+                      name="MgrID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[EmpID]"
+                      dataType="i4"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[EmpID]"
+                      name="EmpID" />
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[EmpFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[EmpFirstName]"
+                      name="EmpFirstName" />
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[EmpLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[EmpLastName]"
+                      name="EmpLastName" />
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[DeptID]"
+                      dataType="i4"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[DeptID]"
+                      name="DeptID" />
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[MgrID]"
+                      dataType="i4"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[MgrID]"
+                      name="MgrID" />
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\load data from sql table to sql table.Paths[OLE DB Source Output]"
+              endId="Package\load data from sql table to sql table\Learning SSIS2_SQLTable.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="246.666666666667,42.6666666666667"
+          Id="Package\load data from sql table to sql table"
+          TopLeft="128.124998090789,47.4499991515279" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\load data from sql table to sql table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="224,42.6666666666667"
+          Id="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable"
+          TopLeft="41.7499994598329,46.449999267757" />
+        <NodeLayout
+          Size="201.333333333334,49.3333333333334"
+          Id="Package\load data from sql table to sql table\Learning SSIS2_SQLTable"
+          TopLeft="56.8749991524966,223.59999600172" />
+        <EdgeLayout
+          Id="Package\load data from sql table to sql table.Paths[OLE DB Source Output]"
+          TopLeft="155.645832639498,89.1166659344236">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,134.483330067297"
+              Start="0,0"
+              End="0,126.983330067297">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,126.983330067297" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\load data from sql table to sql table\SourceLearningSSIS_SQLTable">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load data from sql table to sql table\Learning SSIS2_SQLTable">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

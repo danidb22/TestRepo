@@ -1,0 +1,581 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/3/2022 4:43:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-TVD54GD"
+  DTS:CreatorName="DESKTOP-TVD54GD\12406"
+  DTS:DTSID="{6037ACD6-9E7C-46D2-A75B-72A2184BC4B3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LoadtxtFiletoSQL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{BF980B2F-4AA3-49D6-B497-FD8BF0398F8A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Destination Learning SSIS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E1582637-EA14-4FF6-AEDB-D6303E951F53}"
+      DTS:ObjectName="Destination Learning SSIS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-TVD54GD;Initial Catalog=Learning SSIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceTxtFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="SSIS package to load Employee.txt file in to LearningSSIS..tblEmployee"
+      DTS:DTSID="{CF4CB3F3-C772-4D1F-B77F-0B97E6A376D8}"
+      DTS:ObjectName="SourceTxtFile">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\12406\Documents\Emp.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmpID"
+              DTS:DTSID="{6F77FD1A-BB5B-48E9-A6C0-E5784836A0BB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmpFirstName"
+              DTS:DTSID="{B91FE7B8-9BCF-40B5-9646-A8BD281E1B91}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmpLastName"
+              DTS:DTSID="{F4D2D2CD-7DA2-42BD-90A4-A2A492222B13}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DeptID"
+              DTS:DTSID="{CF3F52D7-895E-463F-A5DA-4388AE1F7EDD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MgrID"
+              DTS:DTSID="{899CB28B-32FD-472B-8761-EC145ADDE65B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Data From be file_Employee"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F15605C8-DBAE-4640-B73D-65AB44F3533D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Data From be file_Employee"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Data From be file_Employee\Destination SQL Server Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination SQL Server Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Employee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Destination Learning SSIS]"
+                  connectionManagerRefId="Package.ConnectionManagers[Destination Learning SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].Columns[EmpID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmpID"
+                      externalMetadataColumnId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].ExternalColumns[EmpID]"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[EmpID]" />
+                    <inputColumn
+                      refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].Columns[EmpFirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmpFirstName"
+                      externalMetadataColumnId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].ExternalColumns[EmpFirstName]"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[EmpFirstName]" />
+                    <inputColumn
+                      refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].Columns[EmpLastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmpLastName"
+                      externalMetadataColumnId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].ExternalColumns[EmpLastName]"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[EmpLastName]" />
+                    <inputColumn
+                      refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].Columns[DeptID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DeptID"
+                      externalMetadataColumnId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].ExternalColumns[DeptID]"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[DeptID]" />
+                    <inputColumn
+                      refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].Columns[MgrID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MgrID"
+                      externalMetadataColumnId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].ExternalColumns[MgrID]"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[MgrID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].ExternalColumns[EmpID]"
+                      dataType="i4"
+                      name="EmpID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].ExternalColumns[EmpFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmpFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].ExternalColumns[EmpLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmpLastName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].ExternalColumns[DeptID]"
+                      dataType="i4"
+                      name="DeptID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input].ExternalColumns[MgrID]"
+                      dataType="i4"
+                      name="MgrID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Data From be file_Employee\Destination SQL Server Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Data From be file_Employee\Destination SQL Server Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Data From be file_Employee\Destination SQL Server Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Data From be file_Employee\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Data From be file_Employee\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceTxtFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceTxtFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[EmpID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmpID]"
+                      length="50"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[EmpID]"
+                      name="EmpID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[EmpFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmpFirstName]"
+                      length="50"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[EmpFirstName]"
+                      name="EmpFirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[EmpLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmpLastName]"
+                      length="50"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[EmpLastName]"
+                      name="EmpLastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[DeptID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DeptID]"
+                      length="50"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[DeptID]"
+                      name="DeptID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[MgrID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MgrID]"
+                      length="50"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].Columns[MgrID]"
+                      name="MgrID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmpID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmpID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmpFirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmpFirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmpLastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmpLastName" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DeptID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DeptID" />
+                    <externalMetadataColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MgrID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MgrID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Data From be file_Employee.Paths[Flat File Source Output]"
+              endId="Package\Load Data From be file_Employee\Destination SQL Server Table.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Load Data From be file_Employee\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="238.666666666667,42.6666666666667"
+          Id="Package\Load Data From be file_Employee"
+          TopLeft="143.124997867271,27.9499995002151" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Data From be file_Employee">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42.6666666666667"
+          Id="Package\Load Data From be file_Employee\Flat File Source"
+          TopLeft="159.999997615814,38.3499993142486" />
+        <NodeLayout
+          Size="217.333333333334,42.6666666666667"
+          Id="Package\Load Data From be file_Employee\Destination SQL Server Table"
+          TopLeft="159.374997625127,120.89999783814" />
+        <EdgeLayout
+          Id="Package\Load Data From be file_Employee.Paths[Flat File Source Output]"
+          TopLeft="235.999997615814,81.0166659809152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.0416666759799,39.8833318572243"
+              Start="0,0"
+              End="32.0416666759799,32.3833318572243">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.9416659286121" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.9416659286121"
+                    Point2="0,19.9416659286121"
+                    Point3="4,19.9416659286121" />
+                  <mssgle:LineSegment
+                    End="28.0416666759799,19.9416659286121" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.0416666759799,19.9416659286121"
+                    Point2="32.0416666759799,19.9416659286121"
+                    Point3="32.0416666759799,23.9416659286121" />
+                  <mssgle:LineSegment
+                    End="32.0416666759799,32.3833318572243" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Data From be file_Employee\Destination SQL Server Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

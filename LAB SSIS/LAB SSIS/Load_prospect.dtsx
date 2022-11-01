@@ -1,0 +1,1972 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/7/2022 8:42:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-TVD54GD"
+  DTS:CreatorName="DESKTOP-TVD54GD\12406"
+  DTS:DTSID="{672EA8F0-8E1F-4F41-8605-18977E5B620D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Load_prospect"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{E942204E-E18F-48C7-98ED-353613DAEC58}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[pacage level connection]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4CEAF180-7F12-4F55-9BD7-B176D957F718}"
+      DTS:ObjectName="pacage level connection">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectByProxy">@[$Package::PacageLevelConnection_ConnectByProxy]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ConnectRetryCount">@[$Package::PacageLevelConnection_ConnectRetryCount]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ConnectRetryInterval">@[$Package::PacageLevelConnection_ConnectRetryInterval]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ConnectUsingManagedIdentity">@[$Package::PacageLevelConnection_ConnectUsingManagedIdentity]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::PacageLevelConnection]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Description">@[$Package::PacageLevelConnection_Description]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Package::PacageLevelConnection_InitialCatalog]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Name">@[$Package::PacageLevelConnection_Name]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Password">@[$Package::PacageLevelConnection_Password]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="RetainSameConnection">@[$Package::PacageLevelConnection_RetainSameConnection]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Package::PacageLevelConnection_ServerName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-TVD54GD;Initial Catalog=Prospects;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAthBD+tOPtkW0cznGDYrfMQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACMbgyK+zFgrqKfGhzKNKwTV7aHcHZPppEd9gIKta8pewAAAAAOgAAAAAIAACAAAACjDhzrI0i86SG64/G3kV6GeYTOSDqYzeR27OhBBXyMhyAAAAD9C55G8HwXalTyhs+zZDlj7gi27P2/qVvplDCfN4WeHEAAAAD5YZzvpz88oWeoEv6GfOlFyRXq4D3ZqZescSqFY6HJ9APFutbRyo4seOIX9RIAouMncOnArpoiN1aBsZwN80vT</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{AE2998F3-972C-4FFA-B370-164C3B6BB104}"
+      DTS:ObjectName="Load_tblProspect_AutoAdjustBufferSize">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{E3CFBCC6-5175-4433-ADC8-CD2CDF3AE7F9}"
+      DTS:ObjectName="Load_tblProspect_DefaultBufferMaxRows">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">10000</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{DCC28A62-5EC8-4C6B-8842-4D278D59D099}"
+      DTS:ObjectName="Load_tblProspect_DefaultBufferSize">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">10485760</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{C2C6EDAD-8BFD-4B85-AADE-04303974B2A1}"
+      DTS:ObjectName="Load_tblProspect_DelayValidation">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{DDD450BB-4371-46FB-B14D-D03F12330FFB}"
+      DTS:ObjectName="Load_tblProspect_Description">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Flow Task</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{672FDAAE-A86E-4F5F-9DA0-0CB0061CC51E}"
+      DTS:ObjectName="Load_tblProspect_Disable">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{F8B8D9AE-8660-4A6E-981C-791DB921C499}"
+      DTS:ObjectName="Load_tblProspect_DisableEventHandlers">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{38EE9FB4-3AE5-48C6-BB70-4AB7AD0CD710}"
+      DTS:ObjectName="Load_tblProspect_EngineThreads">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">10</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{C7912F28-34B9-4CDC-91FD-6DBDA2FD9DB1}"
+      DTS:ObjectName="Load_tblProspect_FailPackageOnFailure">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{6F6F0112-3B0E-4FDE-B167-39031D7B6822}"
+      DTS:ObjectName="Load_tblProspect_FailParentOnFailure">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{76ABCAA9-4941-48B0-B2BA-AB0EE9E53D73}"
+      DTS:ObjectName="Load_tblProspect_ForceExecutionValue">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{78E8182F-9977-4AE9-ADEA-0DCADD102A45}"
+      DTS:ObjectName="Load_tblProspect_IsolationLevel">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1048576</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{9E14D571-59AC-40AA-8B4B-D96AE8400734}"
+      DTS:ObjectName="Load_tblProspect_LocaleID">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1033</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{6AEBA483-D2A5-4DEB-993C-99AB47820E76}"
+      DTS:ObjectName="Load_tblProspect_LookupTblDectionaryCompanySqlCommand">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">select * from [dbo].[tbl_dic_Company]</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2C355DA7-BF8F-465B-AC65-75CE654A86B3}"
+      DTS:ObjectName="Load_tblProspect_LookupTblDectionaryCompanySqlCommandParam">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">select * from (select * from [dbo].[tbl_dic_Company]) [refTable]
+where [refTable].[CompanyName] = ?</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{5A5C960C-34A0-4442-B853-DD86B513AFF3}"
+      DTS:ObjectName="Load_tblProspect_LookupTblDectionaryLocationSqlCommand">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">select * from [dbo].[tbl_dic_Location]</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{727AED83-CA01-4450-9D38-D383FA7D5523}"
+      DTS:ObjectName="Load_tblProspect_LookupTblDectionaryLocationSqlCommandParam">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">select * from (select * from [dbo].[tbl_dic_Location]) [refTable]
+where [refTable].[LocationCity] = ? and [refTable].[LocationState] = ?</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{F82B9739-7146-44FD-A34C-C04C150E16EC}"
+      DTS:ObjectName="Load_tblProspect_LookupTbl_dectinaryDepartmentSqlCommand">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">select * from [dbo].[tbl_dic_Department]</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{3DB600B2-9D16-46C5-A089-9EABECB1689A}"
+      DTS:ObjectName="Load_tblProspect_LookupTbl_dectinaryDepartmentSqlCommandParam">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">select * from (select * from [dbo].[tbl_dic_Department]) [refTable]
+where [refTable].[Dept_Name] = ?</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{B7D3D598-1726-48D9-AEF2-77B458B811AA}"
+      DTS:ObjectName="Load_tblProspect_LookupTbl_dectinaryTitileSqlCommand">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">select * from [dbo].[tbl_dic_Title]</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{41447A20-4388-43C6-9F1D-3B15BF6A8FC8}"
+      DTS:ObjectName="Load_tblProspect_LookupTbl_dectinaryTitileSqlCommandParam">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">select * from (select * from [dbo].[tbl_dic_Title]) [refTable]
+where [refTable].[Title_Name] = ?</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{C55EA183-E71B-42BC-8CD1-9E8079D7AFA7}"
+      DTS:ObjectName="Load_tblProspect_MaximumErrorCount">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C01BD03C-D9E5-4D23-AF1E-E56FCDA0A1C3}"
+      DTS:ObjectName="Load_tblProspect_Name">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">load_tbl prospect</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{1F87EF11-7842-487A-B62C-C6F1070C8F35}"
+      DTS:ObjectName="Load_tblProspect_RunInOptimizedMode">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{AAD26895-0C0D-4C0F-A498-A3173746ABE6}"
+      DTS:ObjectName="PacageLevelConnection">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=DESKTOP-TVD54GD;Initial Catalog=Prospects;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{7E3350B6-F267-43B1-8156-F3C92D6CAD9D}"
+      DTS:ObjectName="PacageLevelConnection_ConnectByProxy">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{A0250BD2-D2AC-491C-97AE-DECE2D90A3C9}"
+      DTS:ObjectName="PacageLevelConnection_ConnectRetryCount">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{6E07B9DE-BB36-4342-820F-514371F350C2}"
+      DTS:ObjectName="PacageLevelConnection_ConnectRetryInterval">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">5</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{57AB0A46-59CD-4977-AE0F-2329DD655758}"
+      DTS:ObjectName="PacageLevelConnection_ConnectUsingManagedIdentity">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A5BAD795-3FE0-46E0-9B71-B9E2ABD5116E}"
+      DTS:ObjectName="PacageLevelConnection_Description">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2FAD736D-B0B4-4F50-A797-07D308437908}"
+      DTS:ObjectName="PacageLevelConnection_InitialCatalog">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Prospects</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{FD0D3847-DF99-4537-8007-C5143267F512}"
+      DTS:ObjectName="PacageLevelConnection_Name">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">pacage level connection</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{70139217-03C9-4B90-9611-96801F5C2049}"
+      DTS:ObjectName="PacageLevelConnection_Password"
+      DTS:Sensitive="True">
+      <DTS:Property
+        DTS:Name="ParameterValue">
+        <DTS:Property
+          DTS:DataType="8"
+          DTS:Name="ParameterValue"
+          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAthBD+tOPtkW0cznGDYrfMQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAxemxD7eZsdQsnkGmkt8IPdtUvGW1Dl/4eHeKS/SJTrgAAAAAOgAAAAAIAACAAAAAqYS3vnpEljECsdQ/lxkWG4GJQ5uksEJECSO+gW+B5OiAAAACVffjix0SerLwxMsxgIO0/MQDUfc/nO719ulCITgH47EAAAABFN8JbbEoTyhxJKM5GMXeQUQPbnY8SOMim7HpPGv9NBDkJxHOahIskA+7/wbwT+jljyDqZuf4n1TW5F8wojSKD</DTS:Property>
+      </DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="11"
+      DTS:DTSID="{F799C653-8045-48D5-9413-C89FE09D8E92}"
+      DTS:ObjectName="PacageLevelConnection_RetainSameConnection">
+      <DTS:Property
+        DTS:DataType="11"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{656E45CD-D0F2-4EB7-835C-2662F0007A2D}"
+      DTS:ObjectName="PacageLevelConnection_ServerName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">DESKTOP-TVD54GD</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\load_tbl prospect"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{52519C95-5EB7-4E8D-9AC3-2781A546B43B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="1033"
+      DTS:ObjectName="load_tbl prospect"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="AutoAdjustBufferSize">@[$Package::Load_tblProspect_AutoAdjustBufferSize]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="DefaultBufferMaxRows">@[$Package::Load_tblProspect_DefaultBufferMaxRows]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="DefaultBufferSize">@[$Package::Load_tblProspect_DefaultBufferSize]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="DelayValidation">@[$Package::Load_tblProspect_DelayValidation]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Description">@[$Package::Load_tblProspect_Description]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Disable">@[$Package::Load_tblProspect_Disable]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="DisableEventHandlers">@[$Package::Load_tblProspect_DisableEventHandlers]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="EngineThreads">@[$Package::Load_tblProspect_EngineThreads]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="FailPackageOnFailure">@[$Package::Load_tblProspect_FailPackageOnFailure]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="FailParentOnFailure">@[$Package::Load_tblProspect_FailParentOnFailure]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ForceExecutionValue">@[$Package::Load_tblProspect_ForceExecutionValue]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="IsolationLevel">@[$Package::Load_tblProspect_IsolationLevel]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="LocaleID">@[$Package::Load_tblProspect_LocaleID]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="MaximumErrorCount">@[$Package::Load_tblProspect_MaximumErrorCount]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Name">@[$Package::Load_tblProspect_Name]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="RunInOptimizedMode">@[$Package::Load_tblProspect_RunInOptimizedMode]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="[Lookup tbl dectionary Location].[SqlCommand]">@[$Package::Load_tblProspect_LookupTblDectionaryLocationSqlCommand]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="[Lookup tbl dectionary Location].[SqlCommandParam]">@[$Package::Load_tblProspect_LookupTblDectionaryLocationSqlCommandParam]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="[Lookup tbl dectionary company].[SqlCommand]">@[$Package::Load_tblProspect_LookupTblDectionaryCompanySqlCommand]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="[Lookup tbl dectionary company].[SqlCommandParam]">@[$Package::Load_tblProspect_LookupTblDectionaryCompanySqlCommandParam]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="[Lookup tbl_dectinary department].[SqlCommand]">@[$Package::Load_tblProspect_LookupTbl_dectinaryDepartmentSqlCommand]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="[Lookup tbl_dectinary department].[SqlCommandParam]">@[$Package::Load_tblProspect_LookupTbl_dectinaryDepartmentSqlCommandParam]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="[Lookup tbl_dectinary titile].[SqlCommand]">@[$Package::Load_tblProspect_LookupTbl_dectinaryTitileSqlCommand]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="[Lookup tbl_dectinary titile].[SqlCommandParam]">@[$Package::Load_tblProspect_LookupTbl_dectinaryTitileSqlCommandParam]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\load_tbl prospect\Lookup tbl dectionary company"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup tbl dectionary company"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[tbl_dic_Company]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[tbl_dic_Company]) [refTable]
+where [refTable].[CompanyName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CompanyID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CompanyName" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Active" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CreateDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdateDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Company]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load_tbl prospect\Lookup tbl dectionary company.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[pacage level connection]"
+                  connectionManagerRefId="Package.ConnectionManagers[pacage level connection]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load_tbl prospect\Lookup tbl dectionary company.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl dectionary company.Inputs[Lookup Input].Columns[Company]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="Company"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Company]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CompanyName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load_tbl prospect\Lookup tbl dectionary company.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\load_tbl prospect\Lookup tbl dectionary company.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl dectionary company.Outputs[Lookup Match Output].Columns[CompanyID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\load_tbl prospect\Lookup tbl dectionary company.Outputs[Lookup Match Output].Columns[CompanyID]"
+                      name="CompanyID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">CompanyID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load_tbl prospect\Lookup tbl dectionary company.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\load_tbl prospect\Lookup tbl dectionary company.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load_tbl prospect\Lookup tbl dectionary company.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\load_tbl prospect\Lookup tbl dectionary company.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl dectionary company.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load_tbl prospect\Lookup tbl dectionary company.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl dectionary company.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load_tbl prospect\Lookup tbl dectionary company.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load_tbl prospect\Lookup tbl dectionary Location"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup tbl dectionary Location"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[tbl_dic_Location]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[tbl_dic_Location]) [refTable]
+where [refTable].[LocationCity] = ? and [refTable].[LocationState] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="LocationID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LocationCity" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="LocationState" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Active" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CreateDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdateDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[City]};#{Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[State]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load_tbl prospect\Lookup tbl dectionary Location.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[pacage level connection]"
+                  connectionManagerRefId="Package.ConnectionManagers[pacage level connection]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load_tbl prospect\Lookup tbl dectionary Location.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl dectionary Location.Inputs[Lookup Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="City"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[City]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">LocationCity</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl dectionary Location.Inputs[Lookup Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="State"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[State]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">LocationState</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load_tbl prospect\Lookup tbl dectionary Location.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\load_tbl prospect\Lookup tbl dectionary Location.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl dectionary Location.Outputs[Lookup Match Output].Columns[LocationID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\load_tbl prospect\Lookup tbl dectionary Location.Outputs[Lookup Match Output].Columns[LocationID]"
+                      name="LocationID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">LocationID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load_tbl prospect\Lookup tbl dectionary Location.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\load_tbl prospect\Lookup tbl dectionary Location.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load_tbl prospect\Lookup tbl dectionary Location.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\load_tbl prospect\Lookup tbl dectionary Location.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl dectionary Location.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load_tbl prospect\Lookup tbl dectionary Location.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl dectionary Location.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load_tbl prospect\Lookup tbl dectionary Location.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load_tbl prospect\Lookup tbl_dectinary department"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup tbl_dectinary department"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[tbl_dic_Department]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[tbl_dic_Department]) [refTable]
+where [refTable].[Dept_Name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DepartmentID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Dept_Name" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Active" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CreateDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdateDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Department]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load_tbl prospect\Lookup tbl_dectinary department.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[pacage level connection]"
+                  connectionManagerRefId="Package.ConnectionManagers[pacage level connection]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load_tbl prospect\Lookup tbl_dectinary department.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl_dectinary department.Inputs[Lookup Input].Columns[Department]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="Department"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Department]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Dept_Name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load_tbl prospect\Lookup tbl_dectinary department.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\load_tbl prospect\Lookup tbl_dectinary department.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl_dectinary department.Outputs[Lookup Match Output].Columns[DepartmentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\load_tbl prospect\Lookup tbl_dectinary department.Outputs[Lookup Match Output].Columns[DepartmentID]"
+                      name="DepartmentID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">DepartmentID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load_tbl prospect\Lookup tbl_dectinary department.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\load_tbl prospect\Lookup tbl_dectinary department.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load_tbl prospect\Lookup tbl_dectinary department.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\load_tbl prospect\Lookup tbl_dectinary department.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl_dectinary department.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load_tbl prospect\Lookup tbl_dectinary department.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl_dectinary department.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load_tbl prospect\Lookup tbl_dectinary department.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load_tbl prospect\Lookup tbl_dectinary titile"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup tbl_dectinary titile"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[tbl_dic_Title]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[tbl_dic_Title]) [refTable]
+where [refTable].[Title_Name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TitleID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Title_Name" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Active" dataType="DT_STR" length="250" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CreateDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdateDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Designation]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[pacage level connection]"
+                  connectionManagerRefId="Package.ConnectionManagers[pacage level connection]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Inputs[Lookup Input].Columns[Designation]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="Designation"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Designation]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Title_Name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Outputs[Lookup Match Output].Columns[TitleID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Outputs[Lookup Match Output].Columns[TitleID]"
+                      name="TitleID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">TitleID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load_tbl prospect\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tbl_Prospects]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load_tbl prospect\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[pacage level connection]"
+                  connectionManagerRefId="Package.ConnectionManagers[pacage level connection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Contact_FirstName]"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Contact_LastName]"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TitleID]"
+                      cachedDataType="i4"
+                      cachedName="TitleID"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title_ID]"
+                      lineageId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Outputs[Lookup Match Output].Columns[TitleID]" />
+                    <inputColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DepartmentID]"
+                      cachedDataType="i4"
+                      cachedName="DepartmentID"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_ID]"
+                      lineageId="Package\load_tbl prospect\Lookup tbl_dectinary department.Outputs[Lookup Match Output].Columns[DepartmentID]" />
+                    <inputColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CompanyID]"
+                      cachedDataType="i4"
+                      cachedName="CompanyID"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Company_ID]"
+                      lineageId="Package\load_tbl prospect\Lookup tbl dectionary company.Outputs[Lookup Match Output].Columns[CompanyID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Contact_ID]"
+                      dataType="i4"
+                      name="Contact_ID" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Contact_FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="Contact_FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Contact_LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="Contact_LastName" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title_ID]"
+                      dataType="i4"
+                      name="Title_ID" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept_ID]"
+                      dataType="i4"
+                      name="Dept_ID" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Company_ID]"
+                      dataType="i4"
+                      name="Company_ID" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location_ID]"
+                      dataType="i4"
+                      name="Location_ID" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Active]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Active" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreateDate]"
+                      dataType="dbDate"
+                      name="CreateDate" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load_tbl prospect\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load_tbl prospect\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load_tbl prospect\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load_tbl prospect\OLE DB Source tbl_prospect"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source tbl_prospect"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Stg_Prospects]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[pacage level connection]"
+                  connectionManagerRefId="Package.ConnectionManagers[pacage level connection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Company]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[Company]"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Company]"
+                      name="Company"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[Location]"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Location]"
+                      name="Location"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Designation]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[Designation]"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Designation]"
+                      name="Designation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Department]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[Department]"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[Department]"
+                      name="Department"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[Company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="Company" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[Designation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="Designation" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[Department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="Department" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="State" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[Title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[Company]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[Company]"
+                      name="Company" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[Location]"
+                      name="Location" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[Designation]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[Designation]"
+                      name="Designation" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[Department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[Department]"
+                      name="Department" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\load_tbl prospect.Paths[Lookup Match Output]"
+              endId="Package\load_tbl prospect\Lookup tbl_dectinary department.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\load_tbl prospect.Paths[Lookup Match Output1]"
+              endId="Package\load_tbl prospect\Lookup tbl dectionary company.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\load_tbl prospect\Lookup tbl_dectinary department.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\load_tbl prospect.Paths[Lookup Match Output2]"
+              endId="Package\load_tbl prospect\Lookup tbl dectionary Location.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\load_tbl prospect\Lookup tbl dectionary company.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\load_tbl prospect.Paths[Lookup No Match Output]"
+              endId="Package\load_tbl prospect\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\load_tbl prospect\Lookup tbl dectionary Location.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\load_tbl prospect.Paths[OLE DB Source Output]"
+              endId="Package\load_tbl prospect\Lookup tbl_dectinary titile.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\load_tbl prospect\OLE DB Source tbl_prospect.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\load_tbl prospect"
+          TopLeft="159,84" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\load_tbl prospect">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="201.333333333334,42"
+          Id="Package\load_tbl prospect\Lookup tbl_dectinary titile"
+          TopLeft="137,103" />
+        <NodeLayout
+          Size="222.666666666667,42"
+          Id="Package\load_tbl prospect\Lookup tbl dectionary Location"
+          TopLeft="268.5,370.041457286432" />
+        <NodeLayout
+          Size="234.666666666667,42"
+          Id="Package\load_tbl prospect\Lookup tbl_dectinary department"
+          TopLeft="121.5,197.5" />
+        <NodeLayout
+          Size="170.666666666667,42"
+          Id="Package\load_tbl prospect\OLE DB Destination"
+          TopLeft="314,448" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\load_tbl prospect\Lookup tbl dectionary company"
+          TopLeft="175,299" />
+        <NodeLayout
+          Size="210.666666666667,42"
+          Id="Package\load_tbl prospect\OLE DB Source tbl_prospect"
+          TopLeft="133,13" />
+        <EdgeLayout
+          Id="Package\load_tbl prospect.Paths[OLE DB Source Output]"
+          TopLeft="238,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load_tbl prospect.Paths[Lookup No Match Output]"
+          TopLeft="380,412.041457286432">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.5,35.9585427135679"
+              Start="0,0"
+              End="19.5,28.4585427135679">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.9792713567839" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.9792713567839"
+                    Point2="0,17.9792713567839"
+                    Point3="4,17.9792713567839" />
+                  <mssgle:LineSegment
+                    End="15.5,17.9792713567839" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.5,17.9792713567839"
+                    Point2="19.5,17.9792713567839"
+                    Point3="19.5,21.9792713567839" />
+                  <mssgle:LineSegment
+                    End="19.5,28.4585427135679" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-46.05638671875,22.9792713567839,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load_tbl prospect.Paths[Lookup Match Output2]"
+          TopLeft="288,341">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92,29.0414572864321"
+              Start="0,0"
+              End="92,21.5414572864321">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5207286432161" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5207286432161"
+                    Point2="0,14.5207286432161"
+                    Point3="4,14.5207286432161" />
+                  <mssgle:LineSegment
+                    End="88,14.5207286432161" />
+                  <mssgle:CubicBezierSegment
+                    Point1="88,14.5207286432161"
+                    Point2="92,14.5207286432161"
+                    Point3="92,18.5207286432161" />
+                  <mssgle:LineSegment
+                    End="92,21.5414572864321" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-2.19138671875,19.5207286432161,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load_tbl prospect.Paths[Lookup Match Output1]"
+          TopLeft="239,239.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49,59.5"
+              Start="0,0"
+              End="49,52">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.75"
+                    Point2="0,29.75"
+                    Point3="4,29.75" />
+                  <mssgle:LineSegment
+                    End="45,29.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45,29.75"
+                    Point2="49,29.75"
+                    Point3="49,33.75" />
+                  <mssgle:LineSegment
+                    End="49,52" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.69138671875,34.75,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load_tbl prospect.Paths[Lookup Match Output]"
+          TopLeft="238.25,145">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.5"
+              Start="0,0"
+              End="0,45">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,16.6953125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\load_tbl prospect\Lookup tbl_dectinary titile">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[tbl_dic_Title]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load_tbl prospect\Lookup tbl dectionary Location">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[tbl_dic_Location]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load_tbl prospect\Lookup tbl_dectinary department">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[tbl_dic_Department]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load_tbl prospect\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load_tbl prospect\Lookup tbl dectionary company">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[tbl_dic_Company]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load_tbl prospect\OLE DB Source tbl_prospect">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
